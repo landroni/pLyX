@@ -1,0 +1,139 @@
+#\DeclareLyXModule{pLyX}
+#DescriptionBegin
+# Provides custom insets for specifying python scripts
+# to run. To be used with the converter pLyX.py which
+# exports from LyX to pLyX format. 
+#DescriptionEnd
+#
+#v.1.0 2013-01-01
+#Author: Andrew Parsloe <aparsloe@clear.net.nz>
+#
+Preamble
+	\newcommand{\pLyXgobble}[1]{}
+	\newcommand{\pLyXidentity}[1]{#1}
+EndPreamble
+
+# All inset names begin with a full
+# stop to aid alphabetical grouping
+
+######## MultiPar	1	########
+
+#(upper-case initial letter for this inset only)
+InsetLayout "Flex:.Run script(s)"
+  LyXType			custom
+  LatexType     	command
+  LatexName     	pLyXgobble
+  Decoration		classic
+  ContentAsLabel	0
+  LabelFont
+		Color			blue
+  EndFont
+  LabelString		"Run script(s)"
+  MultiPar			1
+  ResetsFont		0
+  Spellcheck		0
+End
+
+InsetLayout Flex:.[argument]
+  CopyStyle			"Flex:.Run script(s)"
+	ContentAsLabel	1
+  LabelFont
+		Color			none
+  EndFont
+  LabelString		.
+  FreeSpacing		0
+End
+
+InsetLayout Flex:.[identity]
+  CopyStyle			"Flex:.Run script(s)"
+	LatexType     	command
+  LatexName     	pLyXidentity
+  ContentAsLabel	1
+	Font
+		Color			none
+	EndFont
+  LabelString		""
+  FreeSpacing		0
+End
+
+InsetLayout "Flex:.expand abbreviation|expabbs"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		Abbr.
+  FreeSpacing		0
+End
+
+InsetLayout "Flex:.expand macro|txtmacs"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		Macro
+End
+
+InsetLayout "Flex:.find-&-replace (LyX format)|findrepl"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		"F & R"
+End
+
+######## MultiPar	0	########
+
+InsetLayout Flex:.stop|break
+  CopyStyle			"Flex:.Run script(s)"
+  LabelString		Stop
+  MultiPar			0
+End
+
+InsetLayout Flex:.loop|loop
+  CopyStyle			"Flex:.Run script(s)"
+  LabelString		Loop
+  MultiPar			0
+End
+
+InsetLayout "Flex:.calculate formula|calcul8"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		Calculate
+  MultiPar			0
+End
+
+InsetLayout "Flex:.sort table|sortable"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		"Sort table"
+  MultiPar			0
+End
+
+InsetLayout "Flex:.sort list|sortlist"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		"Sort list"
+  MultiPar			0
+End
+
+InsetLayout "Flex:.count word frequency|wordfreq"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		Frequency
+  MultiPar			0
+End
+
+InsetLayout "Flex:.sort bibliography|sortbib"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		"sort bibliography"
+  MultiPar			0
+End
+
+InsetLayout "Flex:.style index|ixstyler"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		"Style index"
+  MultiPar			0
+End
+
+InsetLayout "Flex:.structure text|LyXifier"
+  CopyStyle			"Flex:.Run script(s)"
+  ContentAsLabel	1
+  LabelString		Structure
+  MultiPar			0
+End
